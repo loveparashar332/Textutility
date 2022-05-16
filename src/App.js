@@ -9,7 +9,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
+// import NoteContext from './context/noteContext';
+import NoteState from './context/NoteState';
 function App() {
   const [alert,setAlert] = useState(null);
   document.title="Text Utility";
@@ -42,12 +43,9 @@ function App() {
           showAlert("Green Mode has been Enabled","success");
      }
   }
-  
   return (
-    
-    
     <>
-      
+    <NoteState>
     <Router>
         <Navbar title="TextUtils" aboutText = "About Us" colors={colors} setTheme={settingTheme} />
         <Alert alert={alert}/>
@@ -55,15 +53,14 @@ function App() {
       <Routes>
         
           <Route exact path="/about" element={<About />}>
-             
+
           </Route>
           <Route exact path="/" element={<TextChange heading="Enter text below to analyze" colors={colors} showAlert={showAlert} />}> 
-           
            </Route>
-           
         </Routes>
         </div>
     </Router>
+    </NoteState>
     </>
   );
 }

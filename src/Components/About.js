@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-
+import { useContext } from 'react';
+import NoteContext from '../context/NoteContext';
+import { useEffect } from 'react';
 export default function About() {
     const [mystyle,setMyStyle]=useState({
         color:"black",
         backgroundColor:"White"
     });
-    
+    useEffect(()=>{
+          a.update();
+          // eslint-disable-next-line
+    },[])
+    const a=useContext(NoteContext);
     const [Text,SetText] = useState('Enable Dark Mode');
-
     const handleDarkMode=()=>{
             if(mystyle.color==='black'){
                   setMyStyle({
@@ -29,7 +34,7 @@ export default function About() {
                     <div className="accordion-item">
                         <h2 className="accordion-header" id="headingOne">
                         <button style={mystyle} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
+                            Hello {a.state.name}
                         </button>
                         </h2>
                         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
